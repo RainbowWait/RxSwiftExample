@@ -7,13 +7,37 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ThreeViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    let musciListViewModel = MusicListViewModel()
+    let disposeBag = DisposeBag()
+    
+    
     override func viewDidLoad() {
+//        items(cellIdentifier: "musicCell")){_, music, cell in
+//            cell.textLabel?.text = music.name
+//            cell.detailTextLabel?.text = music.singer
+//        }
         super.viewDidLoad()
+//        musciListViewModel.data
+//            .bind(to: tableView.rx.items(cellIdentifier:"musicCell")) { _, music, cell in
+//                cell.textLabel?.text = music.name
+//                cell.detailTextLabel?.text = music.singer
+//            }.disposed(by: disposeBag)
 
-        // Do any additional setup after loading the view.
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "musicCell")
+        musciListViewModel.data.bind(to: tableView.rx.items(cellIdentifier: "musicCell", cellType: UITableViewCell.self)){ index, music, cell in
+                            cell.textLabel?.text = music.name
+                            cell.detailTextLabel?.text = music.singer
+                        }.disposed(by: disposeBag)
+
+        tableView.rx.modelSelected(Music.self).subscribe(onNext: { (music) in
+            print("你选中的歌曲信息：[\(music)]")
+        }).disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {

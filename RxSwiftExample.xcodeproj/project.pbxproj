@@ -20,6 +20,8 @@
 		A8912CC220C6776E00782782 /* ThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8912CC020C6776E00782782 /* ThreeViewController.xib */; };
 		A8912CC520C6779100782782 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8912CC320C6779100782782 /* SecondViewController.xib */; };
 		A8912CC620C6779100782782 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8912CC420C6779100782782 /* SecondViewController.swift */; };
+		A8C3F76B20C7BABD00216449 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3F76A20C7BABD00216449 /* MusicModel.swift */; };
+		A8C3F76D20C7BACD00216449 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3F76C20C7BACD00216449 /* MusicViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		A8912CC020C6776E00782782 /* ThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreeViewController.xib; sourceTree = "<group>"; };
 		A8912CC320C6779100782782 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		A8912CC420C6779100782782 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A8C3F76A20C7BABD00216449 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		A8C3F76C20C7BACD00216449 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 		A80D799D20C631060077F388 /* RxSwiftExample */ = {
 			isa = PBXGroup;
 			children = (
+				A8C3F76920C7BA8900216449 /* Model */,
+				A8C3F76820C7BA8400216449 /* ViewModel */,
 				A80D799E20C631060077F388 /* AppDelegate.swift */,
 				A8912CC420C6779100782782 /* SecondViewController.swift */,
 				A8912CC320C6779100782782 /* SecondViewController.xib */,
@@ -154,6 +160,23 @@
 				A80D79C020C631080077F388 /* Info.plist */,
 			);
 			path = RxSwiftExampleUITests;
+			sourceTree = "<group>";
+		};
+		A8C3F76820C7BA8400216449 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8C3F76C20C7BACD00216449 /* MusicViewModel.swift */,
+			);
+			name = ViewModel;
+			path = MusicViewModel;
+			sourceTree = "<group>";
+		};
+		A8C3F76920C7BA8900216449 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8C3F76A20C7BABD00216449 /* MusicModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C1AECB9607974F2D0566C95F /* Frameworks */ = {
@@ -321,9 +344,11 @@
 			files = (
 				A80D79A120C631060077F388 /* ViewController.swift in Sources */,
 				A80D799F20C631060077F388 /* AppDelegate.swift in Sources */,
+				A8C3F76D20C7BACD00216449 /* MusicViewModel.swift in Sources */,
 				A8912CBB20C666D000782782 /* User.swift in Sources */,
 				A8912CC620C6779100782782 /* SecondViewController.swift in Sources */,
 				A8912CC120C6776E00782782 /* ThreeViewController.swift in Sources */,
+				A8C3F76B20C7BABD00216449 /* MusicModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
