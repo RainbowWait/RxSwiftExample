@@ -84,7 +84,6 @@ class ViewController: UIViewController {
             print("do something with newValue")
         }, onDisposed: nil)
         
-  
         
 
     }
