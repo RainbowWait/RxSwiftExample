@@ -147,8 +147,11 @@ class SecondViewController: UIViewController {
         print("OneElement = \(One.elements), OneElements2 = \(One.elements2), OneElement3 = \(One.elements3)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        elementR = \(One.elementsR)")
         
         //字典树
-        let dic = Tire(isElement: false, children: ["c": Tire(isElement: false, children: ["a": Tire(isElement: false, children: ["r": Tire(isElement: false, children: ["t": Tire(isElement: true, children: [:])]), "t": Tire(isElement: true, children: [:])])]),"d": Tire(isElement: false, children: ["o": Tire(isElement: false, children: ["g": Tire(isElement: true, children: [:])])])])
-        print("elements = \(dic.elements)")
+        let dic: Tire<Character> = Tire(isElement: false, children: ["c": Tire(isElement: false, children: ["a": Tire(isElement: false, children: ["r": Tire(isElement: false, children: ["t": Tire(isElement: true, children: [:])]), "t": Tire(isElement: true, children: [:])])]),"d": Tire(isElement: false, children: ["o": Tire(isElement: false, children: ["g": Tire(isElement: true, children: [:])])])])
+        print("test = \("ca".complete(dic))")
+        
+        dic.elements
+//        print("elements = \(dic.elements)")
         
 //        let dic = Tire(isElement: false, children: ["c": Tire(isElement: false, children: ["a": Tire(isElement: false, children: ["r": Tire(isElement: false, children: ["t": Tire(isElement: false, children: [:])])])])])
 //        print("dic.elemnt =\(dic.elements)")
@@ -173,11 +176,11 @@ class SecondViewController: UIViewController {
 //        print("------------------------")
 //        print("-------------------------\(dic.inserting(["c", "a", "r", "t", "e","m"]).elements)")
         
-        print("--------------\(Tire<String>.build(words: ["car","art","camel"]).elements)-------")
+//        print("--------------\(Tire<String>.build(words: ["car","art","camel"]).elements)-------")
         
         Tire<Character>(isElement: false, children: ["c": RxSwiftExample.Tire<Swift.Character>(isElement: false, children: ["a": RxSwiftExample.Tire<Swift.Character>(isElement: false, children: ["r": RxSwiftExample.Tire<Swift.Character>(isElement: true, children: [:]), "m": RxSwiftExample.Tire<Swift.Character>(isElement: false, children: ["e": RxSwiftExample.Tire<Swift.Character>(isElement: false, children: ["l": RxSwiftExample.Tire<Swift.Character>(isElement: true, children: [:])])])])]), "a": RxSwiftExample.Tire<Swift.Character>(isElement: false, children: ["r": RxSwiftExample.Tire<Swift.Character>(isElement: false, children: ["t": RxSwiftExample.Tire<Swift.Character>(isElement: true, children: [:])])])])
         //自动补全
-        print("自动补全功能：\("ca".complete(Tire<Character>.build(words: ["car","art","camel"])))")
+//        print("自动补全功能：\("ca".complete(Tire<Character>.build(words: ["car","art","camel"])))")
     }
     
     //切片
@@ -549,20 +552,18 @@ extension Tire {
         isElement = false
         children = [:]
     }
+//      let dic = Tire(isElement: false, children: ["c": Tire(isElement: false, children: ["a": Tire(isElement: false, children: ["r": Tire(isElement: false, children: ["t": Tire(isElement: true, children: [:])]), "t": Tire(isElement: true, children: [:])])]),"d": Tire(isElement: false, children: ["o": Tire(isElement: false, children: ["g": Tire(isElement: true, children: [:])])])])
     var elements: [[Element]] {
-        
-//        Tire(isElement: true, children: ["c": Tire(isElement: true, children: ["a": Tire(isElement: true, children: ["r": Tire(isElement: true, children: ["t": Tire(isElement: true, children: [:])])])])])
-        
         var result: [[Element]] = isElement ? [[]]:[]
         for (key, value) in children {
+//             print("result = \(result)")
 //            print("value.elements = \(value.elements)")
-            //[key] + $0
-            result += value.elements.map(transform: { (hhh) -> [Element] in
-//                print("hhh = \(hhh) ------\(key)")
+            result += value.elements.map(transform: { (hhh: [Element]) -> [Element] in
+//                print("result = \(result),key = \(key), hhh = \(hhh)")
                 return [key] + hhh
             })
-//            print("result = \(result)")
         }
+//        print("result = \(result)")
         return result
         
     }
